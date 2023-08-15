@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple-Sandbox</title>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <link rel="icon" href="/assets/js.png">
   <link rel="stylesheet" href="libs/metroui_v4.5.1.min.css">
   <style>
@@ -57,15 +58,13 @@
       </a>
     </div>
 
-    <div class="flex-grow-self" data-role="splitter" data-gutter-size="6" style="overflow: auto;">
+    <div id="page" class="flex-grow-self" data-gutter-size="6" style="overflow: auto;">
       <div class="d-flex flex-justify-center flex-align-center">
         <iframe id="editor" frameborder="0" width="100%" height="100%"></iframe>
       </div>
-      <div data-role="splitter" data-split-mode="vertical" data-gutter-size="6">
-        <div id="output" class="d-flex flex-justify-center flex-align-center">
-        </div>
-        <div id="console" class="p-2">
-        </div>
+      <div data-role="splitter" data-split-mode="vertical" data-gutter-size="6" data-split-sizes="70,30">
+        <div id="output" class="d-flex flex-justify-center flex-align-center"></div>
+        <div id="console"></div>
       </div>
     </div>
   </div>
@@ -87,7 +86,7 @@
 
     function consoleLog(args, error) {
       const console = document.getElementById('console')
-      const line = htmlElement(`<pre class="${error ? 'console-error' : 'mb-1'}"></pre>`, console)
+      const line = htmlElement(`<pre class="p-1 ${error ? 'console-error' : 'mb-1'}"></pre>`, console)
       args.forEach((arg, i) => {
         const span = document.createElement('span')
         span.classList.add('mr-2')
@@ -122,6 +121,22 @@
         run(data.code)
       }
     });
+
+    // page splitter breakpoint
+    Metro.makePlugin("#page", "splitter");
+    window.addEventListener('resize', pageSplitter)
+    pageSplitter()
+    function pageSplitter() {
+      const mobile = (window.innerWidth <= 700)
+      const page = document.getElementById('page')
+      const splitterOptions = Metro.getPlugin(page).splitter.options
+      const mobileView = (splitterOptions.splitMode == 'vertical')
+      if (mobileView == mobile) return
+
+      splitterOptions.splitMode = mobile ? 'vertical' : 'horizontal'
+      page.classList.toggle('vertical', mobile)
+      page.querySelector('.gutter').style = `${mobile ? 'height' : 'width'}: ${splitterOptions.gutterSize}px`
+    }
   </script>
 </body>
 

@@ -45,7 +45,7 @@ function click() {
 - [ ] Add other UI controls (like tables & lists that can be used with arrays and loops).
 - [ ] Add Dark/Light mode switch.
 - [ ] Allow saving & sharing code via links.
-- [ ] Make the layout mobile-friendly.
+- [x] Make the layout mobile-friendly.
 - [ ] Add the ability to control the layout.
 
 Please feel free to suggest or contribute enhancements that may benefit the beginners.
