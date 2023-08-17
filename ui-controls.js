@@ -9,6 +9,18 @@ function htmlElement(html, parent = document.body) {
   return element;
 }
 
+function title(title = '') {
+  const titlebar = htmlElement(`<div class="title">${title}</div>`)
+  return {
+    get title() {
+      return titlebar.textContent
+    },
+    set title(title) {
+      titlebar.textContent = title
+    },
+  }
+}
+
 function button(title = 'Button', onclick) {
   const btn = htmlElement(`<button class="button primary shadowed my-1 mr-1">${title}</button>`)
   if (onclick) btn.onclick = onclick

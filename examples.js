@@ -1,49 +1,55 @@
 const examples = {
   // ----------------------------------------
   hello_world: `
-let input1 = input('My name')
-let output1 = output('Message')
+title("Hello World")
 
-button('Say hi!', sayHi)
+let input1 = input("My name")
+let output1 = output("Message")
+button("Say hi!", sayHi)
 
 function sayHi() {
     let name = input1.value
-    if (name == '') {
-        console.log('Enter your name!')
-        output1.value = ''
+    if (name == "") {
+        console.log("Enter your name!")
+        output1.value = ""
     } else {
-        output1.value = 'Hello, ' + name
+        output1.value = "Hello, " + name
     }
 }
 `,
   // ----------------------------------------
   basic_controls: `
-// Add input field
+// Add title bar
+title("Page Title")
+
+// Add empty input field
 let input1 = input()
 
-// Add input field with title and value
-let input2 = input('Input title', 'Input value')
+// Add input field with title and initial value
+let input2 = input("Input title", "Input value")
 
 // Add output field
-let output1 = output('Output title', 'Output value')
+let output1 = output("Output title")
 
 // Get input value
 console.log(input2.value)
 
 // Set output (or input) value
-output1.value = 'Output value - changed'
+output1.value = "Output value"
 
 // Add button
-button('Click me!', click)
+button("Click me!", click)
 
 // Button click callback function
 function click() {
-    input1.value = 'Button clicked!'
-    console.log('Button clicked!')
+    input1.value = "Button clicked!"
+    console.log("Button clicked!")
 }
 `,
   // ----------------------------------------
   simple_calculator: `
+title("Simple Caclulator")
+
 let num1 = input("First number", 4)
 let num2 = input("Second number", 3)
 let result = output("Result")

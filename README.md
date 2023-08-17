@@ -12,31 +12,34 @@ This is intended for absolute beginners who wish to start learning programming w
 
 ## Supported UI controls
 
-Currently, there're only 3 UI controls that can be used (Inputs, Outputs & Buttons), Other controls will be added in the future.
+Currently, there're only 4 UI controls that can be used (Titles, Inputs, Outputs & Buttons), Other controls will be added in the future.
 
 ```js
-// Add input field
+// Add title bar
+title("Page Title")
+
+// Add empty input field
 let input1 = input()
 
-// Add input field with title and value
-let input2 = input('Input title', 'Input value')
+// Add input field with title and initial value
+let input2 = input("Input title", "Input value")
 
 // Add output field
-let output1 = output('Output title', 'Output value')
+let output1 = output("Output title")
 
 // Get input value
 console.log(input2.value)
 
 // Set output (or input) value
-output1.value = 'Output value - changed'
+output1.value = "Output value"
 
 // Add button
-button('Click me!', click)
+button("Click me!", click)
 
 // Button click callback function
 function click() {
-    input1.value = 'Button clicked!'
-    console.log('Button clicked!')
+    input1.value = "Button clicked!"
+    console.log("Button clicked!")
 }
 ```
 
@@ -47,6 +50,7 @@ function click() {
 - [ ] Allow saving & sharing code via links.
 - [x] Make the layout mobile-friendly.
 - [ ] Add the ability to control the layout.
+- [ ] Build a desktop version for offline use
 
 Please feel free to suggest or contribute enhancements that may benefit the beginners.
 

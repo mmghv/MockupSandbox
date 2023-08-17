@@ -1,4 +1,8 @@
 
+interface Title {
+    title: string
+}
+
 interface Input {
     value: string
 }
@@ -13,6 +17,12 @@ interface Output {
  * @param parent Parent element to append the element to
  */
 declare function htmlElement(html: string, parent = document.body): HTMLElement
+
+/**
+ * Add title bar
+ * @param title Text of the title
+ */
+declare function title(title: string): Title
 
 /**
  * Add a button
