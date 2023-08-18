@@ -28,6 +28,12 @@ function button(title = 'Button', onclick) {
 
 function input(title = '', value = '') {
   const input = htmlElement(`<input type="text" data-role="input" data-prepend="${title}" value="${value}">`)
+  input.onkeydown = function (e) {
+    if (e.key == 'Enter') {
+      const btn = document.querySelector('body > button')
+      if (btn && btn.onclick) btn.onclick()
+    }
+  }
   return {
     get value() {
       return input.value
