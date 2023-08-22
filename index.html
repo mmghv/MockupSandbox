@@ -89,25 +89,20 @@
       return element;
     }
 
-    function consoleLog(args, error) {
-      const console = document.getElementById('console')
-      const line = htmlElement(`<pre class="p-1 ${error ? 'console-error' : 'mb-1'}"></pre>`, console)
-      args.forEach((arg, i) => {
-        const span = document.createElement('span')
-        span.classList.add('mr-2')
-        span.textContent = args.length > 1 || arg === '' ? JSON.stringify(arg) : arg
-        line.appendChild(span)
-      });
-      console.scrollTop = line.offsetTop
+    function consoleLog(serializedData, isError) {
+      const consoleDiv = document.getElementById('console')
+      const line = htmlElement(`<pre class="p-1 ${isError ? 'console-error' : 'mb-1'}"></pre>`, consoleDiv)
+      serializedData.forEach(val => htmlElement(`<span class="mr-2">${val}</span>`, line));
+      consoleDiv.scrollTop = line.offsetTop
     }
     customConsole = {
-      log: (...args) => consoleLog(args, false),
-      error: (...args) => consoleLog(args, true),
+      log: (serializedData) => consoleLog(serializedData, false),
+      error: (serializedData) => consoleLog(serializedData, true),
       clear: () => document.getElementById('console').innerHTML = '',
     }
 
     function run(code) {
-      // console.clear()
+      console.clear()
       customConsole.clear()
       const output = document.querySelector('#output')
       output.innerHTML = ''
@@ -121,7 +116,7 @@
     window.addEventListener('message', function(e) {
       const data = e.data
       if (data.type == 'console') {
-        customConsole[data.method](...data.args)
+        customConsole[data.method](data.serializedData)
       } else if (data.type == 'run') {
         run(data.code)
       }

@@ -34,8 +34,14 @@
       realConsole[method] = console[method]
       console[method] = (...args) => {
         realConsole[method](...args)
-        args = JSON.parse(JSON.stringify(args))
-        parent.window.postMessage({type: 'console', method, args}, "*")
+        const serializedData = args.map(arg => {
+          if (typeof arg ==="string") {
+            return args.length == 1 && arg !== '' ? arg : JSON.stringify(arg)
+          } else {
+            return String(arg)
+          }
+        })
+        parent.window.postMessage({type: 'console', method, serializedData}, "*")
       }
     });
 
