@@ -19,6 +19,16 @@ interface Output {
 declare function htmlElement(html: string, parent = document.body): HTMLElement
 
 /**
+ * Change the page direction to right-to-left for languages like Arabic
+ */
+declare function rtl(): void
+
+/**
+ * Change the page direction to left-to-right
+ */
+declare function ltr(): void
+
+/**
  * Add title bar
  * @param title Text of the title
  */

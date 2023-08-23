@@ -9,6 +9,14 @@ function htmlElement(html, parent = document.body) {
   return element;
 }
 
+function rtl() {
+  document.body.setAttribute('dir', 'rtl')
+}
+
+function ltr() {
+  document.body.setAttribute('dir', 'ltr')
+}
+
 function title(title = '') {
   const titlebar = htmlElement(`<div class="title">${title}</div>`)
   return {

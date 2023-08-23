@@ -43,6 +43,8 @@ function click() {
 }
 ```
 
+There's also `rtl()` and `ltr()` functions to change the page direction to right-to-left and left-to-right respectively.
+
 ## TODO
 
 - [ ] Add other UI controls (like tables & lists that can be used with arrays and loops).

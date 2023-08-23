@@ -70,6 +70,25 @@ function subtract() {
 }
 `,
   // ----------------------------------------
+  rtl: `
+rtl()
+title("اهلاً وسهلاً")
+
+let input1 = input("الاسم")
+let output1 = output("الرسالة")
+button("ترحيب", sayHi)
+
+function sayHi() {
+    let name = input1.value
+    if (name == "") {
+        console.log("اكتب اسمك اولاً!")
+        output1.value = ""
+    } else {
+        output1.value = "اهلاً بك يا " + name
+    }
+}
+`,
+  // ----------------------------------------
 }
 
 const urlParams = new URLSearchParams(location.search);
