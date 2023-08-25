@@ -4,11 +4,15 @@ A simple sandbox for learning JavaScript with basic UI controls
 
 https://mmghv.github.io/Simple-Sandbox
 
+![screenshot](screenshot.png)
+
+---
+
 The main goal of this tool is to provide the student with a simple coding sandbox equipped with a small set of basic UI controls that can be utilized from JavaScript, It enables the learner to focus on fundamental language concepts while connecting these concepts to user interfaces that make sense and not only logging to the console.
 
 ## Who is this for
 
-This is intended for absolute beginners who wish to start learning programming with JavaScript directly without needing to go through HTML and CSS first.
+This is intended for absolute beginners who wish to start learning programming with JavaScript directly without needing to go through HTML and CSS first. even if they know HTML it's better to understand the fundamentals first before learning DOM manipulation.
 
 ## Supported UI controls
 
