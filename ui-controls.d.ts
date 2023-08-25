@@ -4,7 +4,12 @@ interface Title {
 }
 
 interface Input {
-    value: string
+    value: string|number
+
+    /**
+     * Change the input type to number so value returns a number and not a string
+     */
+    number(): this
 }
 
 interface Output {

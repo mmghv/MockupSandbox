@@ -44,11 +44,16 @@ function input(title = '', value = '') {
   }
   return {
     get value() {
-      return input.value
+      return input.getAttribute('type') == 'number' ? (input.value*1) : input.value
     },
     set value(value) {
-      input.value = value
+      input.value = input.getAttribute('type') == 'number' ? (value*1) : value
     },
+    number() {
+      input.setAttribute('type', 'number')
+      input.value = input.value == '' ? '' : (input.value*1)
+      return this
+    }
   }
 }
 

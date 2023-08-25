@@ -28,6 +28,9 @@ let input1 = input()
 // Add input field with title and initial value
 let input2 = input("Input title", "Input value")
 
+// Add input of type number (value returns a number and not a string)
+let input3 = input("Number input").number()
+
 // Add output field
 let output1 = output("Output title")
 
@@ -43,6 +46,7 @@ button("Click me!", click)
 // Button click callback function
 function click() {
     input1.value = "Button clicked!"
+    input3.value = input3.value + 1
     console.log("Button clicked!")
 }
 `,
@@ -50,23 +54,19 @@ function click() {
   simple_calculator: `
 title("Simple Caclulator")
 
-let num1 = input("First number", 4)
-let num2 = input("Second number", 3)
+let num1 = input("First number", 4).number()
+let num2 = input("Second number", 3).number()
 let result = output("Result")
 
 button("+", add)
 button("-", subtract)
 
 function add() {
-    let a = num1.value * 1
-    let b = num2.value * 1
-    result.value = a + b
+    result.value = num1.value + num2.value
 }
 
 function subtract() {
-    let a = num1.value * 1
-    let b = num2.value * 1
-    result.value = a - b
+    result.value = num1.value - num2.value
 }
 `,
   // ----------------------------------------

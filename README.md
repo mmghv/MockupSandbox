@@ -24,6 +24,9 @@ let input1 = input()
 // Add input field with title and initial value
 let input2 = input("Input title", "Input value")
 
+// Add input of type number (value returns a number and not a string)
+let input3 = input("Number input").number()
+
 // Add output field
 let output1 = output("Output title")
 
@@ -39,11 +42,12 @@ button("Click me!", click)
 // Button click callback function
 function click() {
     input1.value = "Button clicked!"
+    input3.value = input3.value + 1
     console.log("Button clicked!")
 }
 ```
 
-There's also `rtl()` and `ltr()` functions to change the page direction to right-to-left and left-to-right respectively.
+There're also `rtl()` and `ltr()` functions to change the page direction to right-to-left and left-to-right respectively.
 
 ## TODO
 
