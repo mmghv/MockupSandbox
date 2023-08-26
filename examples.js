@@ -51,6 +51,91 @@ function click() {
 }
 `,
   // ----------------------------------------
+  table: `
+title("Table example")
+
+// Create a table with 4 columns
+let tb = table("ID", "Name", "Notes", "Edit", "Remove")
+
+// Note that table rows and columns are zero-based, first row & first column has index 0
+
+// Set the 3rd column to be an editable input
+tb.input(2)
+
+// Columns can be input of type number so getValue() return a number
+// tb.input(0).number()
+
+// Set the 4th column to be a button and register the click callback function
+tb.button(3, edit)
+
+// click callback receives the row index of the clicked button
+function edit(index) {
+    // Get cell value (2nd column, row of clicked button)
+    let oldName = tb.getValue(1, index)
+
+    let newName = prompt("Edit student name :", oldName)
+
+    if (newName != null) {
+        // Set cell value
+        tb.setValue(1, index, newName)
+    }
+}
+
+// Set the 5th column to be a button, use an anonymous callback function
+tb.button(4, function (index) {
+    // Remove table row
+    tb.remove(index)
+})
+
+let id = 1
+
+// Add rows to the table
+for (let i = 1; i <= 5; i++) {
+    tb.add(id, "student " + i, "notes " + i, "Edit", "X")
+    id++
+}
+
+let nameInput = input("New student")
+button("Add student", add)
+button("Clear table", clear)
+
+function add() {
+    // Add new row
+    tb.add(id, nameInput.value, "", "Edit", "X")
+    nameInput.value = ""
+    id++
+}
+
+function clear() {
+    // Clear the table
+    tb.clear()
+    id = 1
+}
+
+let searchInput = input("Search by name")
+
+button("Search", function() {
+    let searchText = searchInput.value
+
+    if (searchText == "") {
+        console.log("Enter a search text")
+        return
+    }
+
+    // Iterate over the rows
+    for (let i = 0; i < tb.rows; i++) {
+        let studentName = tb.getValue(1, i)
+
+        if (studentName.includes(searchText)) {
+            console.log("Found student with name : " + studentName + " - row index : " + i)
+            return
+        }
+    }
+
+    console.log("No student found with this name!")
+})
+`,
+  // ----------------------------------------
   simple_calculator: `
 title("Simple Caclulator")
 

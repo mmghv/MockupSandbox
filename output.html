@@ -22,12 +22,17 @@
     .button {
       transition: all .05s ease-in-out;
     }
-    [dir="rtl"] .button.mr-1 {
-      margin-left: 4px !important;
-      margin-right: 0 !important;
+    .button {
+      margin-inline-end: 4px;
     }
     input[readonly] {
       background-color: #e8e8e8;
+    }
+    .input input {
+      padding-inline-end: 0;
+    }
+    .input .prepend {
+      border-inline-end: solid 1px #e8e8e8;
     }
   </style>
   <script>

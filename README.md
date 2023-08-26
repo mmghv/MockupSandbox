@@ -16,7 +16,9 @@ This is intended for absolute beginners who wish to start learning programming w
 
 ## Supported UI controls
 
-Currently, there're only 4 UI controls that can be used (Titles, Inputs, Outputs & Buttons), Other controls will be added in the future.
+### Basic controls
+
+Available basic controls are (title, input, output & button) :
 
 ```js
 // Add title bar
@@ -51,7 +53,15 @@ function click() {
 }
 ```
 
-There're also `rtl()` and `ltr()` functions to change the page direction to right-to-left and left-to-right respectively.
+### Advanced controls
+
+A more advanced table control is available which is ideal for learning loops and working with dynamic lists (Arrays and Objects could also be used).
+
+A full example of working with the table can be found [here](https://mmghv.github.io/Simple-Sandbox/index.html?example=table).
+
+### Other methods & tools
+
+`rtl()` and `ltr()` functions can be used to change the page direction to right-to-left and left-to-right respectively.
 
 ## TODO
 
