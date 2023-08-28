@@ -51,12 +51,12 @@
       <div class="split-button my-1">
         <button class="dropdown-toggle button dark">Examples</button>
         <ul class="d-menu" data-role="dropdown">
-          <li><a href="index.html">Hello world</a></li>
-          <li><a href="?example=basic_controls">Basic controls</a></li>
-          <li><a href="?example=table">Table</a></li>
+          <li><a href=".">Hello world</a></li>
+          <li><a href=".?example=basic_controls">Basic controls</a></li>
+          <li><a href=".?example=table">Table</a></li>
           <li class="divider"></li>
-          <li><a href="?example=simple_calculator">Simple calculator</a></li>
-          <li><a href="?example=rtl">Right to left</a></li>
+          <li><a href=".?example=simple_calculator">Simple calculator</a></li>
+          <li><a href=".?example=rtl">Right to left</a></li>
         </ul>
       </div>
       <span class="flex-grow-self"></span>
@@ -122,7 +122,7 @@
 
     function runFinished(save) {
       if (save) {
-        encodedQuery = '?code=' + codeCompressForURI(window.code)
+        encodedQuery = '.?code=' + codeCompressForURI(window.code)
         if (window.codeURIChanged) {
           history.replaceState(null, '', encodedQuery)
         } else {
