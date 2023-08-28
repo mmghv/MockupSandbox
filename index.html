@@ -77,6 +77,8 @@
   </div>
 
   <script src="libs/metroui_v4.5.1.min.js"></script>
+  <script src="libs/lzma_worker-min.js"></script>
+  <script src="code-compress.js"></script>
   <script>
     document.getElementById('editor').src = 'editor.html' + location.search
 
@@ -103,24 +105,42 @@
       clear: () => document.getElementById('console').innerHTML = '',
     }
 
-    function run(code) {
+    function run(code, save) {
       console.clear()
       customConsole.clear()
       const output = document.querySelector('#output')
       output.innerHTML = ''
       const iframe = htmlElement(`<iframe src="output.html" width="100%" height="100%">`, null)
       iframe.onload = () => {
-        iframe.contentWindow.postMessage(code, "*");
+        window.code = code
+        iframe.contentWindow.postMessage({code, save}, "*")
       }
       output.appendChild(iframe)
     }
+
+    function runFinished(save) {
+      if (save) {
+        encodedQuery = '?code=' + codeCompressForURI(window.code)
+        if (window.codeURIChanged) {
+          history.replaceState(null, '', encodedQuery)
+        } else {
+          history.pushState(null, '', encodedQuery)
+          window.codeURIChanged = true
+        }
+      }
+    }
+
+    // reload on back/forward
+    addEventListener('popstate', () => location.reload())
 
     window.addEventListener('message', function(e) {
       const data = e.data
       if (data.type == 'console') {
         customConsole[data.method](data.serializedData)
       } else if (data.type == 'run') {
-        run(data.code)
+        run(data.code, data.save)
+      } else if (data.type == 'run-finished') {
+        runFinished( data.save)
       }
     });
 

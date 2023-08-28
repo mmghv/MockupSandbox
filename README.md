@@ -63,14 +63,19 @@ A full example of working with the table can be found [here](https://mmghv.githu
 
 `rtl()` and `ltr()` functions can be used to change the page direction to right-to-left and left-to-right respectively.
 
+## Saving and sharing your code
+
+Currently, there's no backend or a login system, but a simple system to save and share your code is implemented in the frontend using the URL, when you edit the code the URL will change automatically, the whole code will be compressed and encoded into the URL so you can bookmark it or send the link to someone else.
+
 ## TODO
 
-- [ ] Add other UI controls (like tables & lists that can be used with arrays and loops).
-- [ ] Add Dark/Light mode switch.
-- [ ] Allow saving & sharing code via links.
+- [x] Add other UI controls (like tables & lists that can be used with arrays and loops).
+- [x] Allow saving & sharing code via links.
+- [ ] short links.
 - [x] Make the layout mobile-friendly.
 - [ ] Add the ability to control the layout.
 - [ ] Build a desktop version for offline use
+- [ ] Add Dark/Light mode switch.
 
 Please feel free to suggest or contribute enhancements that may benefit the beginners.
 

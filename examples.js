@@ -178,5 +178,17 @@ function sayHi() {
 
 const urlParams = new URLSearchParams(location.search);
 const example = urlParams.get('example');
+const URICode = urlParams.get('code');
 
-window.code = (examples[example] || examples['hello_world']).substr(1)
+if (URICode) {
+    try {
+        window.code = codeDecompressFromURI(URICode)
+    } catch (error) {
+        window.code = `console.error("Error while parsing the code from the URL")`
+        setTimeout(() => {
+            console.error(error)
+        }, 1000);
+    }
+} else {
+    window.code = (examples[example] || examples['hello_world']).substr(1)
+}
