@@ -20,7 +20,7 @@ function sayHi() {
   // ----------------------------------------
   basic_controls: `
 // Add title bar
-title("Page Title")
+title("Basic controls")
 
 // Add empty input field
 let input1 = input()

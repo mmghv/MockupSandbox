@@ -19,6 +19,7 @@ function ltr() {
 
 function title(title = '') {
   const titlebar = htmlElement(`<div class="title">${title}</div>`)
+  parent.window.postMessage({type: 'title', title}, "*")
   return {
     get title() {
       return titlebar.textContent

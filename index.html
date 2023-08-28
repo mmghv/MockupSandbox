@@ -80,6 +80,7 @@
   <script src="libs/lzma_worker-min.js"></script>
   <script src="code-compress.js"></script>
   <script>
+    const initialTitle = document.title
     document.getElementById('editor').src = 'editor.html' + location.search
 
     function htmlElement(html, parent = document.body) {
@@ -108,6 +109,7 @@
     function run(code, save) {
       console.clear()
       customConsole.clear()
+      document.title = initialTitle
       const output = document.querySelector('#output')
       output.innerHTML = ''
       const iframe = htmlElement(`<iframe src="output.html" width="100%" height="100%">`, null)
@@ -140,7 +142,9 @@
       } else if (data.type == 'run') {
         run(data.code, data.save)
       } else if (data.type == 'run-finished') {
-        runFinished( data.save)
+        runFinished(data.save)
+      } else if (data.type == 'title') {
+        document.title = initialTitle + (data.title ? ' - ' + data.title : '')
       }
     });
 

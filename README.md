@@ -65,7 +65,7 @@ A full example of working with the table can be found [here](https://mmghv.githu
 
 ## Saving and sharing your code
 
-Currently, there's no backend or a login system, but a simple system to save and share your code is implemented in the frontend using the URL, when you edit the code the URL will change automatically, the whole code will be compressed and encoded into the URL so you can bookmark it or send the link to someone else.
+Currently, there's no backend or a login system, but a simple system for saving and sharing your code is implemented in the frontend using the URL, when you edit the code the URL will change automatically, the whole code will be compressed and encoded into the URL so you can bookmark it or send the link to someone else.
 
 ## TODO
 
