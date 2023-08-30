@@ -1,14 +1,14 @@
-# Simple-Sandbox
+# MockupSandbox
 
-A simple sandbox for learning JavaScript with basic UI controls
+A simple sandbox for learning JavaScript with basic mockup UI controls
 
-https://mmghv.github.io/Simple-Sandbox
+https://mmghv.github.io/MockupSandbox
 
 ![screenshot](screenshot.png)
 
 ---
 
-The main goal of this tool is to provide the student with a simple coding sandbox equipped with a small set of basic UI controls that can be utilized from JavaScript, It enables the learner to focus on fundamental language concepts while connecting these concepts to user interfaces that make sense and not only logging to the console.
+The main goal of this tool is to provide the student with a simple coding sandbox equipped with a small set of basic UI controls for a quick user interface mockup, It enables the learner to focus on fundamental language concepts while connecting these concepts to user interfaces that make sense and not only logging to the console.
 
 ## Who is this for
 
@@ -57,7 +57,7 @@ function click() {
 
 A more advanced table control is available which is ideal for learning loops and working with dynamic lists (Arrays and Objects could also be used).
 
-A full example of working with the table can be found [here](https://mmghv.github.io/Simple-Sandbox/index.html?example=table).
+A full example of working with the table can be found [here](https://mmghv.github.io/MockupSandbox?example=table).
 
 ### Other methods & tools
 
