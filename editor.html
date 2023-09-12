@@ -24,7 +24,8 @@
   <script>
     require.config({ paths: { vs: 'libs/monaco-editor/min/vs' } });
 
-    require(['vs/editor/editor.main'], function () {
+    let quickSuggestions = true
+    require(['vs/editor/editor.main'], () => {
       editor = monaco.editor.create(document.getElementById('container'), {
         value: code,
         language: 'javascript',
@@ -32,6 +33,12 @@
         automaticLayout: true,
         // scrollBeyondLastLine: false,
         fontSize: 18,
+        quickSuggestions,
+      });
+
+      editor.addCommand([monaco.KeyCode.F4], () => {
+        quickSuggestions = !quickSuggestions
+        editor.updateOptions({quickSuggestions})
       });
 
       editor.onDidChangeModelContent(() => {
