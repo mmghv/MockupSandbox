@@ -20,6 +20,7 @@
   <script src="libs/monaco-editor/min/vs/loader.js"></script>
   <script src="libs/lzma_worker-min.js"></script>
   <script src="code-compress.js"></script>
+  <script src="editor-snippets.js"></script>
   <script src="examples.js"></script>
   <script>
     require.config({ paths: { vs: 'libs/monaco-editor/min/vs' } });
@@ -35,6 +36,8 @@
         fontSize: 18,
         quickSuggestions,
       });
+
+      loadSnippets(monaco)
 
       editor.addCommand([monaco.KeyCode.F4], () => {
         quickSuggestions = !quickSuggestions
