@@ -35,9 +35,12 @@
         // scrollBeyondLastLine: false,
         fontSize: 18,
         quickSuggestions,
+        suggest: {
+          showDeprecated: false,
+        },
       });
 
-      loadSnippets(monaco)
+      registerSnippets(monaco)
 
       editor.addCommand([monaco.KeyCode.F4], () => {
         quickSuggestions = !quickSuggestions
