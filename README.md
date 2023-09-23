@@ -8,11 +8,11 @@ https://mmghv.github.io/MockupSandbox
 
 ---
 
-The main goal of this tool is to provide the student with a simple coding sandbox equipped with a small set of basic UI controls for a quick user interface mockup, It enables the learner to focus on fundamental language concepts while connecting these concepts to user interfaces that make sense and not only logging to the console.
+The main goal of this tool is to provide the learner with a simple coding sandbox equipped with a small set of basic UI controls for a quick user interface mockup, It enables the learner to focus on fundamental language concepts while connecting these concepts to user interfaces that make sense and not only logging to the console.
 
 ## Who is this for
 
-This is intended for absolute beginners who wish to start learning programming with JavaScript directly without needing to go through HTML and CSS first. even if they know HTML it's better to understand the fundamentals first before learning DOM manipulation.
+This is intended for absolute beginners who wish to start learning programming with JavaScript directly without needing to go through HTML and CSS first. even if they know HTML, it's essential to learn programming fundamentals before learning DOM manipulation.
 
 ## Supported UI controls
 

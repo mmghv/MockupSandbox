@@ -65,8 +65,8 @@ function jsSnippets() {
       label: 'for',
       detail: 'For Loop',
       insertText: [
-        'for (let ${1:i} = 0; ${1:i} < 10; ${1:i}++) {',
-        '\t${2:}',
+        'for (let ${1:i} = 0; ${1:i} < ${2:10}; ${1:i}++) {',
+        '\t${3:}',
         '}',
       ].join('\n'),
     },
