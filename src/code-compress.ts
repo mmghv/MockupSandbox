@@ -1,12 +1,16 @@
-function codeCompressForURI(code) {
+declare const LZMA: {
+  compress: Function,
+  decompress: Function,
+}
+
+function codeCompressForURI(code: string) {
   const prefix = '1-'
-  code = LZMA.compress(code, 1)
-  code = arrayBufferToBase64(code)
+  code = arrayBufferToBase64(LZMA.compress(code, 1))
   code = encodeURIComponent(code)
   return prefix + code
 }
 
-function codeDecompressFromURI(code) {
+function codeDecompressFromURI(code: string) {
   const prefix = '1-'
   if (code.startsWith(prefix)) {
     code = code.substr(prefix.length)
@@ -14,12 +18,10 @@ function codeDecompressFromURI(code) {
     throw 'codeDecompressFromURI: Prefix not supported!'
   }
   code = decodeURIComponent(code)
-  code = base64ToArrayBuffer(code)
-  code = LZMA.decompress(code)
-  return code
+  return LZMA.decompress(base64ToArrayBuffer(code))
 }
 
-function arrayBufferToBase64(buffer) {
+function arrayBufferToBase64(buffer: Uint8Array): string {
   let binary = '';
   const bytes = new Uint8Array(buffer);
   for (let i = 0; i < bytes.byteLength; i++) {
@@ -28,7 +30,7 @@ function arrayBufferToBase64(buffer) {
   return btoa(binary);
 }
 
-function base64ToArrayBuffer(base64) {
+function base64ToArrayBuffer(base64: string): Uint8Array {
   const binaryString = atob(base64);
   const bytes = new Uint8Array(binaryString.length);
   for (let i = 0; i < binaryString.length; i++) {

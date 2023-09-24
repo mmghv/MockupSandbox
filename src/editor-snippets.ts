@@ -1,4 +1,4 @@
-function registerSnippets(monaco) {
+function registerSnippets(monaco: any) {
   monaco.languages.registerCompletionItemProvider('javascript', {
     provideCompletionItems: () => {
       return {

@@ -14,59 +14,14 @@
     }
   </style>
 </head>
-
 <body>
   <div id="container" style="width: 100%; height: 100%"></div>
   <script src="libs/monaco-editor/min/vs/loader.js"></script>
   <script src="libs/lzma_worker-min.js"></script>
-  <script src="code-compress.js"></script>
-  <script src="editor-snippets.js"></script>
-  <script src="examples.js"></script>
-  <script>
-    require.config({ paths: { vs: 'libs/monaco-editor/min/vs' } });
-
-    let quickSuggestions = true
-    require(['vs/editor/editor.main'], () => {
-      editor = monaco.editor.create(document.getElementById('container'), {
-        value: code,
-        language: 'javascript',
-        theme: "vs-dark",
-        automaticLayout: true,
-        // scrollBeyondLastLine: false,
-        fontSize: 18,
-        quickSuggestions,
-        suggest: {
-          showDeprecated: false,
-        },
-      });
-
-      registerSnippets(monaco)
-
-      editor.addCommand([monaco.KeyCode.F4], () => {
-        quickSuggestions = !quickSuggestions
-        editor.updateOptions({quickSuggestions})
-      });
-
-      editor.onDidChangeModelContent(() => {
-        clearTimeout(window.timeoutId);
-        window.timeoutId = setTimeout(() => {
-          run(true);
-        }, 500);
-      });
-
-      fetch('ui-controls.d.ts')
-        .then(r => r.text())
-        .then(r => {
-          monaco.languages.typescript.javascriptDefaults.addExtraLib(r, "ts:filename/ui-controls.d.ts");
-        })
-
-      run(false);
-    });
-
-    function run(save) {
-      parent.window.postMessage({type: 'run', code: editor.getValue(), save}, "*")
-    }
-  </script>
+  <script src="dist/code-compress.js"></script>
+  <script src="dist/editor-snippets.js"></script>
+  <script src="dist/examples.js"></script>
+  <script src="dist/editor.js"></script>
 </body>
 
 </html>

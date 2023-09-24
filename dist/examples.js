@@ -1,6 +1,8 @@
+"use strict";
+var _a;
 const examples = {
-  // ----------------------------------------
-  hello_world: `
+    // ----------------------------------------
+    hello_world: `
 title("Hello World")
 
 let input1 = input("My name")
@@ -17,8 +19,8 @@ function sayHi() {
     }
 }
 `,
-  // ----------------------------------------
-  basic_controls: `
+    // ----------------------------------------
+    basic_controls: `
 // Add title bar
 title("Basic controls")
 
@@ -50,8 +52,8 @@ function click() {
     console.log("Button clicked!")
 }
 `,
-  // ----------------------------------------
-  table: `
+    // ----------------------------------------
+    table: `
 title("Table example")
 
 // Create a table with 4 columns
@@ -135,8 +137,8 @@ button("Search", function() {
     console.log("No student found with this name!")
 })
 `,
-  // ----------------------------------------
-  simple_calculator: `
+    // ----------------------------------------
+    simple_calculator: `
 title("Simple Caclulator")
 
 let num1 = input("First number", 4).number()
@@ -154,8 +156,8 @@ function subtract() {
     result.value = num1.value - num2.value
 }
 `,
-  // ----------------------------------------
-  rtl: `
+    // ----------------------------------------
+    rtl: `
 rtl()
 title("اهلاً وسهلاً")
 
@@ -173,22 +175,22 @@ function sayHi() {
     }
 }
 `,
-  // ----------------------------------------
-}
-
+    // ----------------------------------------
+};
 const urlParams = new URLSearchParams(location.search);
 const example = urlParams.get('example');
 const URICode = urlParams.get('code');
-
 if (URICode) {
     try {
-        window.code = codeDecompressFromURI(URICode)
-    } catch (error) {
-        window.code = `console.error("Error while parsing the code from the URL")`
+        window.code = codeDecompressFromURI(URICode);
+    }
+    catch (error) {
+        window.code = `console.error("Error while parsing the code from the URL")`;
         setTimeout(() => {
-            console.error(error)
+            console.error(error);
         }, 1000);
     }
-} else {
-    window.code = (examples[example] || examples['hello_world']).substr(1)
+}
+else {
+    window.code = ((_a = examples[example]) !== null && _a !== void 0 ? _a : examples['hello_world']).substr(1);
 }
