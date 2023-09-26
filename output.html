@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="metro4:init" content="false">
+  <meta name="metro4:cloak" content="default">
   <link rel="stylesheet" href="libs/metroui_v4.5.1.min.css">
   <style>
     body {
       padding: 10px;
     }
-    body > :first-child {
+    body > :first-child, body > script:first-child + * {
       margin-top: 0;
     }
 
@@ -39,6 +43,7 @@
   <script src="dist/ui-controls.js"></script>
   <script src="libs/metroui_v4.5.1.min.js"></script>
 </head>
-<body>
+<body class="m4-cloak">
+  <!-- {{ code-script }} -->
 </body>
 </html>
